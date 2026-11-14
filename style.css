@@ -4,5 +4,128 @@
 
 body {
     margin: 0;
+    min-height: 100vh;
+    padding: 40px 20px;
     font-family: Arial, sans-serif;
+    color: #24324a;
+    background: #eef2ff;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.app {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.app-header {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.subtitle {
+    margin: 0 0 8px;
+    color: #5b67d6;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    font-size: 42px;
+}
+
+.app-header > p:last-child {
+    margin: 12px 0 0;
+    color: #65708a;
+}
+
+.task-section {
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(45, 55, 100, 0.12);
+}
+
+h2 {
+    margin: 0 0 24px;
+    font-size: 24px;
+}
+
+.task-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.task-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 14px;
+    color: #24324a;
+    border: 2px solid #dce1f2;
+    border-radius: 10px;
+    outline: none;
+}
+
+.task-form input:focus {
+    border-color: #6672e5;
+}
+
+.task-form button {
+    padding: 13px 20px;
+    color: #ffffff;
+    font-weight: bold;
+    background: #6672e5;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.task-form button:hover {
+    background: #505bc7;
+}
+
+.task-list {
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.empty-message {
+    padding: 24px;
+    color: #7b849b;
+    text-align: center;
+    background: #f7f8fc;
+    border: 2px dashed #dce1f2;
+    border-radius: 10px;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 24px 14px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .task-section {
+        padding: 22px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
 }
