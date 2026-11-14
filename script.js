@@ -1,11 +1,13 @@
 const taskForm = document.querySelector("#task-form");
 const taskInput = document.querySelector("#task-input");
 const taskList = document.querySelector("#task-list");
+const taskCount = document.querySelector("#task-count");
 
 let tasks = [];
 
 function renderTasks() {
     taskList.innerHTML = "";
+    updateTaskCount();
 
     if (tasks.length === 0) {
         const emptyMessage = document.createElement("li");
@@ -52,6 +54,15 @@ function renderTasks() {
         taskItem.appendChild(deleteButton);
         taskList.appendChild(taskItem);
     });
+}
+
+function updateTaskCount() {
+    const remainingTasks = tasks.filter(function (task) {
+        return !task.completed;
+    }).length;
+
+    const taskWord = remainingTasks === 1 ? "task" : "tasks";
+    taskCount.textContent = remainingTasks + " " + taskWord + " remaining";
 }
 
 function toggleTask(taskId) {
