@@ -103,6 +103,17 @@ h2 {
     list-style: none;
 }
 
+.task-item {
+    padding: 16px;
+    background: #f7f8fc;
+    border: 1px solid #e4e7f2;
+    border-radius: 10px;
+}
+
+.task-item + .task-item {
+    margin-top: 10px;
+}
+
 .empty-message {
     padding: 24px;
     color: #7b849b;
