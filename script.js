@@ -38,9 +38,18 @@ function renderTasks() {
         taskText.className = "task-text";
         taskText.textContent = task.text;
 
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.type = "button";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", function () {
+            deleteTask(task.id);
+        });
+
         taskContent.appendChild(checkbox);
         taskContent.appendChild(taskText);
         taskItem.appendChild(taskContent);
+        taskItem.appendChild(deleteButton);
         taskList.appendChild(taskItem);
     });
 }
@@ -51,6 +60,14 @@ function toggleTask(taskId) {
     });
 
     task.completed = !task.completed;
+    renderTasks();
+}
+
+function deleteTask(taskId) {
+    tasks = tasks.filter(function (task) {
+        return task.id !== taskId;
+    });
+
     renderTasks();
 }
 
