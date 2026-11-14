@@ -4,7 +4,7 @@ const taskList = document.querySelector("#task-list");
 const taskCount = document.querySelector("#task-count");
 const filterButtons = document.querySelectorAll(".filter-button");
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("studyTasks")) || [];
 let currentFilter = "all";
 
 function renderTasks() {
@@ -81,12 +81,17 @@ function updateTaskCount() {
     taskCount.textContent = remainingTasks + " " + taskWord + " remaining";
 }
 
+function saveTasks() {
+    localStorage.setItem("studyTasks", JSON.stringify(tasks));
+}
+
 function toggleTask(taskId) {
     const task = tasks.find(function (currentTask) {
         return currentTask.id === taskId;
     });
 
     task.completed = !task.completed;
+    saveTasks();
     renderTasks();
 }
 
@@ -95,6 +100,7 @@ function deleteTask(taskId) {
         return task.id !== taskId;
     });
 
+    saveTasks();
     renderTasks();
 }
 
@@ -114,6 +120,7 @@ function addTask(event) {
     };
 
     tasks.push(newTask);
+    saveTasks();
     taskInput.value = "";
     taskInput.focus();
     renderTasks();
@@ -133,3 +140,5 @@ filterButtons.forEach(function (button) {
         renderTasks();
     });
 });
+
+renderTasks();
