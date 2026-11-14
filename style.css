@@ -163,6 +163,10 @@ h2 {
 }
 
 .task-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     margin-top: 20px;
     padding-top: 18px;
     color: #65708a;
@@ -171,6 +175,30 @@ h2 {
 
 .task-summary p {
     margin: 0;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.filter-button {
+    padding: 6px 10px;
+    color: #65708a;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    color: #505bc7;
+}
+
+.filter-button.active {
+    color: #505bc7;
+    background: #eef0ff;
+    border-color: #cfd4fa;
 }
 
 @media (max-width: 520px) {
@@ -187,6 +215,11 @@ h2 {
     }
 
     .input-group {
+        flex-direction: column;
+    }
+
+    .task-summary {
+        align-items: flex-start;
         flex-direction: column;
     }
 }
