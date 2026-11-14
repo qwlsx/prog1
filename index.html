@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="app-header">
+            <p class="subtitle">Plan your day</p>
+            <h1>Study Planner</h1>
+            <p>Keep your study tasks organized in one place.</p>
+        </header>
+
+        <section class="task-section">
+            <h2>My tasks</h2>
+
+            <form class="task-form" id="task-form">
+                <label for="task-input">New task</label>
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="task-input"
+                        placeholder="For example: Learn JavaScript basics"
+                        autocomplete="off"
+                    >
+                    <button type="submit">Add task</button>
+                </div>
+            </form>
+
+            <ul class="task-list" id="task-list">
+                <li class="empty-message">No tasks yet. Add your first task!</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
