@@ -18,9 +18,40 @@ function renderTasks() {
     tasks.forEach(function (task) {
         const taskItem = document.createElement("li");
         taskItem.className = "task-item";
-        taskItem.textContent = task.text;
+
+        if (task.completed) {
+            taskItem.classList.add("completed");
+        }
+
+        const taskContent = document.createElement("label");
+        taskContent.className = "task-content";
+
+        const checkbox = document.createElement("input");
+        checkbox.className = "task-checkbox";
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+        checkbox.addEventListener("change", function () {
+            toggleTask(task.id);
+        });
+
+        const taskText = document.createElement("span");
+        taskText.className = "task-text";
+        taskText.textContent = task.text;
+
+        taskContent.appendChild(checkbox);
+        taskContent.appendChild(taskText);
+        taskItem.appendChild(taskContent);
         taskList.appendChild(taskItem);
     });
+}
+
+function toggleTask(taskId) {
+    const task = tasks.find(function (currentTask) {
+        return currentTask.id === taskId;
+    });
+
+    task.completed = !task.completed;
+    renderTasks();
 }
 
 function addTask(event) {
